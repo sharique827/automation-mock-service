@@ -1,14 +1,5 @@
 import { SessionData } from "../../session-types";
 
-const customer = {
-  contact: {
-    phone: "9876556789",
-  },
-  person: {
-    name: "Joe Adams",
-  },
-};
-
 function updateFulfillmentRouteTags(tags: any[]) {
   return tags.map((tag) => {
     if (tag.descriptor?.code === "ROUTE_INFO" && Array.isArray(tag.list)) {
@@ -100,7 +91,7 @@ export async function onInitMultipleStopsGenerator(
   if (sessionData.selected_fulfillments.length > 0) {
     existingPayload.message.order.fulfillments =
       sessionData.selected_fulfillments;
-    existingPayload.message.order.fulfillments[0]["customer"] = customer;
+    existingPayload.message.order.fulfillments[0]["customer"] = (sessionData as any)?.initCustomer;
     // existingPayload.message.order.fulfillments[0]["type"] = "DELIVERY"
 
     if (Array.isArray(existingPayload.message.order.fulfillments[0].tags)) {

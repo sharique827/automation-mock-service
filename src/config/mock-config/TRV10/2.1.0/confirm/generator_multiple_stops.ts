@@ -39,7 +39,7 @@ export async function confirmMultipleStopsGenerator(
 ) {
   existingPayload.message.order.fulfillments =
     sessionData.selected_fulfillments;
-  existingPayload.message.order.fulfillments[0]["customer"] = customer;
+  // existingPayload.message.order.fulfillments[0]["customer"] = customer;
   existingPayload.message.order.items[0] = {
     id: sessionData.selected_item_id,
   };

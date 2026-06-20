@@ -4,4 +4,5 @@ save-data:
   selected_fulfillments: "$.message.order.fulfillments[*]"
   created_at: "$.message.order.created_at"
   payment_id: "$.message.order.fulfillments[0].id"
+  onConfirmOrder: "$.message.order"
   
